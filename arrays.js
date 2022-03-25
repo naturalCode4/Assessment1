@@ -41,7 +41,7 @@ const bigOrSmallArray = [1, 99, 42, 69, 102, -10, 159, 352]
 // CODE HERE
 
 let strArr = []
-for (i=0; i<bigOrSmallArray.length; i++) {
+for (let i=0; i<bigOrSmallArray.length; i++) {
   let currentNum = bigOrSmallArray[i]
   if (currentNum>100) {
     strArr.push('big')

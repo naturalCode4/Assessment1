@@ -2,7 +2,7 @@
 /* Create a variable called 'myName' with a value that is your name as a string. */
 
 //CODE HERE 
-let myName = 'Adin Kramer'
+const myName = 'Adin Kramer'
 //////////////////PROBLEM 2////////////////////
 /* Create a variable called 'faveNum' with a value that is your favorite number. */
 
@@ -30,6 +30,7 @@ if (faveNum === 13) {
 */
 
 //CODE HERE
-for (i=0; i<5; i++) {
+for (let i=0; i<5; i++) {
   console.log(faveNum)
 }
+

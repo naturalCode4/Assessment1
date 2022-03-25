@@ -60,7 +60,8 @@ let gitStatusDefinition = 'git status lets you inspect changes to your working t
 */
 
 //CODE HERE
-let gitAddDefinition = 'git add moves files from your working directory to the git staging area. Use git add . to add all files in current directory'
+let gitAddDefinition = 'git add begins tracking changes to specified files. It moves files from your working directory to the git staging area.'
+let gitAddCode = 'git add .'
 //////////////////PROBLEM 7////////////////////
 /*
     Create a variable called 'gitCommitDefinition'.  

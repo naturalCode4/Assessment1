@@ -1,3 +1,4 @@
+const { Console } = require('console');
 const readline = require('readline');
 
 const rl = readline.createInterface({
@@ -5,14 +6,18 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
+console.log('Hello beautiful! Welcome to the password validator.')
 
-rl.question('Hello beautiful! Whats your name?:', (name) => {
-  rl.question(`Hello ${name}, What's your password? (It must contain at least 10 characters and at least one number):`, (password) => {
+rl.question('Whats your name?:', (name) => {
+  rl.question(`Hello ${name}, What's your password? (It must contain at least 10 characters, at least one number, and at least one Capital Letter):`, (password) => {
       
-    let passFail
+    let lengthPassFail = false // starts false for context of test
+    let numberPassFail = true // starts true for context of test
+    let capitalPassFail = false // starts false for context of test
+
 
     if (password.length >=10) { // checks length of password is >10
-      passFail = true
+      lengthPassFail = true
     }
 
     //console.log(password.length)
@@ -39,15 +44,23 @@ rl.question('Hello beautiful! Whats your name?:', (name) => {
     pattern7.test(password) === false &&
     pattern8.test(password) === false &&
     pattern9.test(password) === false) {
-      passFail = false
-    } else { passFail = true
+      numberPassFail = false
+    }
+
+
+    //this code block checks that you have at least one capital letter
+
+    for (let i=0; i<password.length; i++) {
+      if (password.charCodeAt(i) >=65 && password.charCodeAt(i) <= 90) { // checks to see that character is a letter (e.g. 'a','b','z')
+        if (password[i] === password[i].toUpperCase()) {
+          capitalPassFail = true
+        } 
       }
-      
-    //console.log('The pass Fail Status is:', passFail)
-    
-    if (passFail === true) {
+    }
+          
+    if (lengthPassFail === true && numberPassFail === true && capitalPassFail === true) {
       console.log(`Your password meets the requirements. Good job, ${name}!`)
-    } else console.log(`Your password is less than 10 characters or contains no number. Sorry ${name}.`)
+    } else console.log(`Your password is less than 10 characters, missing a number, or missing a Capital Letter. Sorry ${name}.`)
 
     rl.close();
   });
